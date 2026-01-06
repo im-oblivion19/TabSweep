@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>TabSweep</title>
+
+    <!-- Shared theme -->
+    <link rel="stylesheet" href="theme.css" />
+
+    <!-- Popup-specific layout -->
+    <style>
+      body {
+        width: 330px;
+        padding: 14px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 4px;
+      }
+
+      .full {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stack">
+      <!-- Header -->
+      <div class="title">
+        <h2>🧹 TabSweep</h2>
+        <div class="small">Automatically clean up inactive tabs</div>
+      </div>
+
+      <!-- Important tab -->
+      <div class="card row">
+        <div>
+          <div style="font-weight: 600;">Important tab</div>
+          <div class="small">Protect this tab from auto-closing</div>
+        </div>
+        <button id="toggleImportant" class="btn-secondary">
+          Toggle
+        </button>
+      </div>
+
+      <!-- Threshold -->
+      <div class="card row">
+        <div>
+          <div style="font-weight: 600;">Threshold</div>
+          <div class="small">Minutes of inactivity</div>
+        </div>
+        <input
+          id="threshold"
+          type="number"
+          min="1"
+          max="1440"
+          step="1"
+        />
+      </div>
+
+      <!-- Auto approve -->
+      <div class="card row">
+        <div>
+          <div style="font-weight: 600;">Auto-approve</div>
+          <div class="small">Close tabs without confirmation</div>
+        </div>
+        <input id="autoApprove" type="checkbox" />
+      </div>
+
+      <!-- Run button -->
+      <button id="runNow" class="btn-primary full">
+        Run TabSweep Now
+      </button>
+
+      <!-- Footer note -->
+      <div class="small" style="text-align: center;">
+        Won’t close Important or pinned tabs, or YouTube videos that are playing.
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

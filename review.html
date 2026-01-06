@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>TabSweep Review</title>
+
+    <!-- Shared theme -->
+    <link rel="stylesheet" href="theme.css" />
+
+    <!-- Review-page specific layout -->
+    <style>
+      body {
+        padding: 18px;
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
+      .page {
+        display: grid;
+        gap: 14px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .titleBlock {
+        display: grid;
+        gap: 6px;
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .controlCard {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+      }
+
+      .controlCard .labelStack {
+        display: grid;
+        gap: 2px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      #list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .tabRow {
+        display: grid;
+        gap: 6px;
+      }
+
+      .tabTitle {
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .tabMeta {
+        font-size: 13px;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .tabMeta a {
+        color: var(--text);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .tabMeta a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      /* nicer checkbox alignment */
+      .checkboxWrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* make buttons look consistent */
+      #closeAll {
+        min-width: 190px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <div class="header">
+        <div class="titleBlock">
+          <h1>TabSweep Review</h1>
+          <div class="small" id="subtitle">Finding tabs…</div>
+        </div>
+
+        <div class="controls">
+          <div class="card controlCard">
+            <div class="labelStack">
+              <label for="threshold">Threshold</label>
+              <div class="small">Minutes of inactivity</div>
+            </div>
+            <input id="threshold" type="number" min="1" max="1440" step="1" />
+          </div>
+
+          <div class="card controlCard">
+            <div class="labelStack">
+              <label for="autoApprove">Auto-approve</label>
+              <div class="small">No confirmation</div>
+            </div>
+            <div class="checkboxWrap">
+              <input id="autoApprove" type="checkbox" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button id="closeAll" class="btn-primary">✅ Close these tabs</button>
+        <button id="cancel" class="btn-secondary">❌ Cancel</button>
+      </div>
+
+      <!-- List -->
+      <div id="list"></div>
+    </div>
+
+    <script src="review.js"></script>
+  </body>
+</html>

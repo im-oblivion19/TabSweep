@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "TabSweep",
+  "version": "1.0.0",
+  "description": "Automatically prompts the user to closes unused tabs after a configurable time, with protection for Important tabs and playing YouTube videos.",
+  "permissions": ["tabs", "storage", "alarms", "scripting"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "action": {
+    "default_title": "Declutter",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["youtube_content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+  "16": "icon16.png",
+  "48": "icon48.png",
+  "128": "icon128.png"
+}
+
+}
